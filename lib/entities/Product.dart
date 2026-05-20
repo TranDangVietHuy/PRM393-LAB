@@ -61,6 +61,15 @@ class Product {
     );
   }
 
+  @override
+  String toString() {
+    return 'Product(id: $id, name: $name, price: $price, image: $image)';
+  }
+
+  void printProduct() {
+    print(toString());
+  }
+
   static void _validateText(String value, String fieldName) {
     if (value.trim().isEmpty) {
       print('$fieldName cannot be empty');
