@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 // /*LAB 1
 //  * Xây dựng lớp Product với các thuộc tính id, name, price, image
 //  * có các thuộc tính và danh sách tĩnh gồm List<Product> products
@@ -67,12 +69,12 @@ class Product {
   }
 
   void printProduct() {
-    print(toString());
+    debugPrint(toString());
   }
 
   static void _validateText(String value, String fieldName) {
     if (value.trim().isEmpty) {
-      print('$fieldName cannot be empty');
+      debugPrint('$fieldName cannot be empty');
     }
   }
 
@@ -85,7 +87,7 @@ class Product {
     if (!json.containsKey('id') ||
         !json.containsKey('name') ||
         !json.containsKey('price')) {
-      print('Missing required product fields');
+      debugPrint('Missing required product fields');
     }
     return Product(
       id: json['id'].toString(),
@@ -99,10 +101,10 @@ class Product {
     _validateText(p.id, 'id');
     _validateText(p.name, 'name');
     if (p.price < 0) {
-      print('price cannot be negative');
+      debugPrint('price cannot be negative');
     }
     if (products.any((product) => product.id == p.id)) {
-      print('A product with id ${p.id} already exists');
+      debugPrint('A product with id ${p.id} already exists');
     }
     products.add(p);
   }
@@ -110,7 +112,7 @@ class Product {
   void delete(String id) {
     final index = _productIndexById(id);
     if (index == -1) {
-      print('Product with id $id was not found');
+      debugPrint('Product with id $id was not found');
     }
     products.removeAt(index);
   }
@@ -118,14 +120,14 @@ class Product {
   void edit(String id, {String? name, double? price, String? image}) {
     final index = _productIndexById(id);
     if (index == -1) {
-      print('Product with id $id was not found');
+      debugPrint('Product with id $id was not found');
     }
 
     if (name != null) {
       _validateText(name, 'name');
     }
     if (price != null && price < 0) {
-      print('price cannot be negative');
+      debugPrint('price cannot be negative');
     }
 
     products[index] = products[index].copyTo(
@@ -145,7 +147,7 @@ class Product {
   void increasePriceOneProduct(String id) {
     final index = _productIndexById(id);
     if (index == -1) {
-      print('Product with id $id was not found');
+      debugPrint('Product with id $id was not found');
     }
 
     products[index] = products[index].copyTo(
