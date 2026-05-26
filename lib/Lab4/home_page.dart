@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prj/Lab4/app_structure_demo.dart';
 import 'package:prj/Lab4/core_widgets_demo.dart';
+import 'package:prj/Lab4/common_ui_demo.dart';
 import 'package:prj/Lab4/input_control_demo.dart';
 import 'package:prj/Lab4/layout_demo.dart';
 
@@ -9,11 +10,8 @@ const List menus = [
   {"title": "Exercise 1 - Core Widgets Demo", "navigation": CoreWidget()},
   {"title": "Exercise 2 - Input Controls Demo", "navigation": InputControl()},
   {"title": "Exercise 3 - Layout Demo", "navigation": LayoutDemo()},
-  {
-    "title": "Exercise 4 - App Structure Demo",
-    "navigation": AppStructureDemo(),
-  },
-  {"title": "Exercise 5 - Common UI Demo", "navigation": null},
+  {"title": "Exercise 4 - App Structure Demo","navigation": AppStructureDemo(),},
+  {"title": "Exercise 5 - Common UI Demo", "navigation": CommonUIDemo()},
 ];
 
 class Lab4HomePage extends StatelessWidget {
