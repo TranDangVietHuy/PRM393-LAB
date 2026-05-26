@@ -24,8 +24,8 @@ class Student extends Person {
 
   factory Student.fromJson(Map<String, dynamic> json) {
     return Student(
-      id: json['id'].toString() ?? "",
-      name: json['name'].toString() ?? "",
+      id: json['id'].toString() ,
+      name: json['name'].toString(),
       age: int.parse(json['age'] ?? 0),
       gpa: double.parse(json['gpa'] ?? 0),
     );

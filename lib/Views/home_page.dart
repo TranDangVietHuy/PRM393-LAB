@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prj/Widgets/product_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,21 +15,22 @@ class HomePage extends StatelessWidget {
 
         ],
       ),
-      body: Center(
-        child: Container(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.blueAccent),
-          ),
-          child: Center(
-            child: Image.asset(
-              'assets/images/img1.png',
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
-      ),
+      // body: Center(
+      //   child: Container(
+      //     width: double.infinity,
+      //     height: MediaQuery.of(context).size.height,
+      //     decoration: BoxDecoration(
+      //       border: Border.all(width: 1, color: Colors.blueAccent),
+      //     ),
+      //     child: Center(
+      //       child: Image.asset(
+      //         'assets/images/img1.png',
+      //         fit: BoxFit.fill,
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      body: ProductList(),
     bottomNavigationBar: Container(
       color: Colors.blueGrey[900],
       padding: const EdgeInsets.all(16.0),

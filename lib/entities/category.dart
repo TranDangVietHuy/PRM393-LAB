@@ -1,4 +1,4 @@
-import 'Product.dart';
+import 'product.dart';
 
 class Category {
   final int id;
@@ -10,7 +10,7 @@ class Category {
     required this.id,
     this.name = '',
     this.des = '',
-    this.products = null,
+    this.products,
   });
   Category copyTo({
     int? id,

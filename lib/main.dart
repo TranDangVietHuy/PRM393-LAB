@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prj/Views/HomePage.dart';
-import 'package:prj/entities/Product.dart';
+import 'package:prj/Lab4/home_page.dart';
+import 'package:prj/entities/product.dart';
 
 void main() {
   final productManager = Product(
@@ -46,15 +46,31 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: Lab4HomePage(
+        isDarkMode: isDarkMode,
+        onThemeToggle: () {
+          setState(() {
+            isDarkMode = !isDarkMode;
+          });
+        },
+      ),
     );
   }
 }
