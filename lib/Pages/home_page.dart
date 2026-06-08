@@ -12,7 +12,13 @@ class HomePage extends StatelessWidget {
         title: const Text('data'),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-
+          IconButton(onPressed: () {}, icon: Icon(Icons.details)),
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/about');
+            },
+            icon: Icon(Icons.account_box),
+          ),
         ],
       ),
       // body: Center(
@@ -31,15 +37,15 @@ class HomePage extends StatelessWidget {
       //   ),
       // ),
       body: ProductList(),
-    bottomNavigationBar: Container(
-      color: Colors.blueGrey[900],
-      padding: const EdgeInsets.all(16.0),
-      child: const Text(
-        '© 2026 All rights reserved.',
-        textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white),
-      )
-    ),
+      bottomNavigationBar: Container(
+        color: Colors.blueGrey[900],
+        padding: const EdgeInsets.all(16.0),
+        child: const Text(
+          '© 2026 All rights reserved.',
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
     );
   }
 }

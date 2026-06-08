@@ -16,36 +16,43 @@ class Product {
   final String name;
   final double price;
   final String image;
+  final String? description;
   static List<Product> products = [
     Product(
       id: "P001",
       name: "Laptop",
       price: 1200.0,
-      image: "assets/images/laptop.png",
+      image: "images/laptop.png",
+      description: "High-performance laptop for professionals and gaming",
     ),
     Product(
       id: "P002",
       name: "Phone",
       price: 800.0,
-      image: "assets/images/phone.png",
+      image: "images/phone.png",
+      description: "Latest smartphone with advanced camera and fast processor",
     ),
     Product(
       id: "P003",
       name: "Tablet",
       price: 450.0,
-      image: "assets/images/tablet.png",
+      image: "images/tablet.png",
+      description:
+          "Portable tablet with stunning display and long battery life",
     ),
     Product(
       id: "P004",
       name: "Headphones",
       price: 120.0,
-      image: "assets/images/headphones.png",
+      image: "images/headphones.png",
+      description: "Premium wireless headphones with noise cancellation",
     ),
     Product(
       id: "P005",
       name: "Smart Watch",
       price: 250.0,
-      image: "assets/images/watch.png",
+      image: "images/watch.png",
+      description: "Smart watch with fitness tracking and health monitoring",
     ),
   ];
   Product({
@@ -53,19 +60,27 @@ class Product {
     required this.name,
     required this.price,
     this.image = "",
+    this.description,
   });
-  Product copyTo({String? id, String? name, double? price, String? image}) {
+  Product copyTo({
+    String? id,
+    String? name,
+    double? price,
+    String? image,
+    String? description,
+  }) {
     return Product(
       id: id ?? this.id,
       name: name ?? this.name,
       price: price ?? this.price,
       image: image ?? this.image,
+      description: description ?? this.description,
     );
   }
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, price: $price, image: $image)';
+    return 'Product(id: $id, name: $name, price: $price, image: $image, description: $description)';
   }
 
   void printProduct() {
@@ -93,7 +108,8 @@ class Product {
       id: json['id'].toString(),
       name: json['name'].toString(),
       price: double.parse(json['price'].toString()),
-      image: json['image'],
+      image: json['image']?.toString() ?? '',
+      description: json['description']?.toString(),
     );
   }
 
@@ -117,7 +133,13 @@ class Product {
     products.removeAt(index);
   }
 
-  void edit(String id, {String? name, double? price, String? image}) {
+  void edit(
+    String id, {
+    String? name,
+    double? price,
+    String? image,
+    String? description,
+  }) {
     final index = _productIndexById(id);
     if (index == -1) {
       debugPrint('Product with id $id was not found');
@@ -134,6 +156,7 @@ class Product {
       name: name,
       price: price,
       image: image,
+      description: description,
     );
   }
 
