@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prj/Lab6/Views/movie_list.dart';
 import 'package:prj/Pages/about_page.dart';
-import 'package:prj/Pages/homepage_navigation_bar.dart';
 import 'package:prj/entities/product.dart';
 
 void main() {
@@ -60,25 +60,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // routes: {
-      //   '/': (context) => HomePage(),
-      //   '/about': (context) => AboutPage(),
-      // },
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      home: HomepageNavigationBar(
-        
-        // isDarkMode: isDarkMode,
-        // onThemeToggle: () {
-        //   setState(() {
-        //     isDarkMode = !isDarkMode;
-        //   });
-        // },
-      ),
-
+      home: const MovieList(),
       routes: {'/about': (context) => const AboutPage()},
     );
   }
 }
+
